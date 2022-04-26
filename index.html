@@ -15,62 +15,94 @@
     <title>Bill Splitter</title>
   </head>
   <body>
-    <main>
       <section class="card">
-        <h1 class="header">Bill Split</h1>
-        <p>&#9432 All inputs must be in number formats</p>
+        <h1>Split your bills!</h1>
+        <p>&#9432; Inputs must be in number formats</p>
         <div class="container">
-          <div class="row">
-            <div class="col">How much was the bill?</div>
-            <div class="col">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Amount (to the nearest dollar)"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text">$</span>
+          <div class="bill-inputs">
+            <div class="row">
+              <div class="col">How much was the bill?</div>
+              <div class="col">
+                <div class="input-group">
+                  <input
+                    name="billAmount"
+                    id="billAmount"
+                    type="text"
+                    class="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">$</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="w-100"></div>
-            <div class="col">How much do you want to tip?</div>
-            <div class="col">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Amount (to the nearest dollar)"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text">%</span>
+              <div class="w-100"></div>
+              <div class="col">How much do you want to tip?</div>
+              <div class="col">
+                <div class="input-group">
+                  <input
+                    name="tipAmount"
+                    id="tipAmount"
+                    type="text"
+                    class="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="w-100"></div>
-            <div class="col">Number of people</div>
-            <div class="col">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  aria-label="Amount (to the nearest dollar)"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text">people</span>
+              <div class="w-100"></div>
+              <div class="col">Number of people</div>
+              <div class="col">
+                <div class="input-group">
+                  <input
+                    name="peopleAmount"
+                    id="peopleAmount"
+                    minlength="1"
+                    type="text"
+                    class="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">people</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-          <button type="button" class="btn btn-outline-primary btn-block">Calculate</button>
+            <button
+              type="submit"
+              id="calculate-btn"
+              class="btn btn-outline-primary btn-block"
+            >
+              Calculate
+            </button>
 
-          <button type="button" class="btn btn-outline-danger btn-block">Reset</button>
+            <button
+              type="reset"
+              id="reset-btn"
+              class="btn btn-outline-danger btn-block"
+            >
+              Reset
+            </button>
+          </div>
         </div>
+        <div class="result-box">
+          <hr />
+          <h2>Result</h2>
+          <div>Currend date and time</div>
+          <ul>
+            <li>Tip per person</li>
+            <li>Total in tips</li>
+            <li><strong>Total for each person</strong></li>
+          </ul>
         </div>
+        <a href="https://shannon-denton.com/"
+          >Coded with ❤️ by Shannon Denton</a
+        >
       </section>
-    </main>
-
+    <script src="myfile.js"></script>
   </body>
 </html>

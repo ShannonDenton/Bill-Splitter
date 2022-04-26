@@ -1,27 +1,28 @@
 body {
   background: #157af6;
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  padding: 100px 450px 100px 450px;
   font-size: small;
-}
-
-main {
   display: flex;
   justify-content: center;
   align-items: center;
   color: black;
-}
-
-.header {
-  padding: 10px;
-  font-size: 30px;
+  position: absolute;
+  padding: 10px 300px 100px 300px;
 }
 
 h1 {
-  background-color: #afcaea;
+  padding: 10px;
+  font-size: 30px;
+  background-color: #e3e4fd;
   border-radius: 7px;
+
+}
+
+h2 {
+  font-size: 30px;
+
 }
 
 p {
@@ -43,4 +44,17 @@ div.col {
 .card {
   padding: 20px;
   border-radius: 20px;
+  max-width: 500px;
+  max-height: 700px;
+}
+
+a {
+  color: #0f57af;
+  text-decoration-color: #0f57af;
+  margin-top: 5px;
+}
+
+ul {
+  text-align: left;
+  list-style-type: none;
 }
