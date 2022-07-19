@@ -3,6 +3,10 @@ function displayTime() {
   var dateTime = new Date();
   var hrs = dateTime.getHours();
   var min = dateTime.getMinutes();
+   if (min < 10) {
+     min = `0${min}`;
+   }
+
   var session = document.getElementById("session");
 
   if (hrs >= 12) {
