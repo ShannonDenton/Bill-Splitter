@@ -5,11 +5,10 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: small;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   color: black;
-  position: absolute;
-  padding: 10px 300px 100px 300px;
+  padding: 50px;
 }
 
 h1 {
@@ -33,9 +32,9 @@ h3,
   color: grey;
 }
 
-h4 {
+/* h4 {
   font-size: small;
-}
+} */
 
 p {
   color: grey;
@@ -72,3 +71,11 @@ a {
   justify-content: space-between;
   padding: 0.2rem 0;
 }
+
+#perPerson {
+  text-align: center;
+  font-size: 50px;
+  margin: 0px
+
+}
+

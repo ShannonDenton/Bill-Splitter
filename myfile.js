@@ -3,9 +3,9 @@ function displayTime() {
   var dateTime = new Date();
   var hrs = dateTime.getHours();
   var min = dateTime.getMinutes();
-   if (min < 10) {
-     min = `0${min}`;
-   }
+  if (min < 10) {
+    min = `0${min}`;
+  }
 
   var session = document.getElementById("session");
 
@@ -54,78 +54,29 @@ function displayDate() {
 setInterval(displayTime, 100);
 setInterval(displayDate, 100);
 
-// Calculation portion:
-// Add selectors to HTML to be able to target them in JS file
-// Use queryselectors to select the input fields for total, tip, and people
-/* Use if/else conditional statement to say "if input is not empty take the 
-field input and save as constant" And add .Fixed(2) to only have 2 ending 
-decimal places */
-// Use eventlisteners and .preventdefault for calculate and reset buttons
+// Calculation:
+const splitting = () => {
+  let total = parseInt(document.querySelector("#total").value);
+  let people = parseInt(document.querySelector("#people").value);
+  let tipPercent = document.querySelector("#tipPercent");
 
-const billDivideForm = document.getElementById("bill-divider-form");
-const resetBtn = document.getElementById("reset-btn");
-
-const billSmallText = document.createElement("small");
-const tipSmallText = document.createElement("small");
-const peopleSmallText = document.createElement("small");
-
-billDivideForm.addEventListener("submit", billDividerHandler);
-
-function billDivideHandler(event) {
-  event.preventDefault();
-  const inputs = getInputs();
-  showCalculatedOutput(inputs);
-}
-
-// get all the inputs for the bill divider
-function getInputs() {
-  let subtotal = document.getElementById("subtotal").value;
-  let tipPercent = document.getElementById("tip").value;
-  let noOfPerson = document.getElementById("no-of-person").value;
-  return { subtotal, tipPercent, noOfPerson };
-}
-
-// calculate the bill divider info
-function showCalculatedOutput(input) {
-  billDivideForm.reset();
-
-  let totalTip =
-    (parseFloat(input.subtotal) * parseFloat(input.tipPercent)) / 100;
-  let totalAmount = parseFloat(input.subtotal) + totalTip;
-  let tipPerPerson = totalTip / parseFloat(input.noOfPerson);
-  let billPerPerson = totalAmount / parseFloat(input.noOfPerson);
-  // consle.log(totalTip, totalAmount, tipPerPerson, billPerPerson);
-
-  document.getElementById("total-bill").innerHTML = `$ ${totalAmount.toFixed(
-    2
-  )}`;
-  document.getElementById(
-    "bill-per-person"
-  ).innerHTML = `$ ${billPerPerson.toFixed(2)}`;
-  document.getElementById("total-tip").innerHTML = `$ ${totalTip.toFixed(2)}`;
-  document.getElementById(
-    "tip-per-person"
-  ).innerHTML = `$ ${tipPerPerson.toFixed(2)}`;
-}
-
-// reset button
-/*
-resetBtn.addEventListener("click", () => {
-  bill.classList.remove("error-border");
-  tip.classList.remove("error-border");
-  people.classList.remove("error-border");
-  billSmallText.remove();
-  tipSmallText.remove();
-  peopleSmallText.remove();
-  resultSection.remove();
-  calculateBtn.disabled = true;
-  calculateBtn.classList.add("disable");
+  if (tipPercent.value !== "") {
+    let calcPercent = parseInt(tipPercent.value);
+    const totalWithTip = total + (calcPercent * total) / 100;
+    document.querySelector("#perPerson").innerHTML = (
+      totalWithTip / people
+    ).toFixed(2);
+  } else {
+    const result = total / people;
+    document.querySelector("#perPerson").innerHTML = result.toFixed(2);
+  }
+};
+const splitBtn = document.querySelector("#splitBtn");
+splitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  splitting();
 });
-*/
-
-// reset buttin
-function fun() {
-  document.getElementById("subtotal").value = "";
-  document.getElementById("tip").value = "";
-  document.getElementById("no-of-person").value = "";
-}
+document.querySelector("#resetBtn").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.querySelector("#perPerson").innerHTML = "$0";
+});
