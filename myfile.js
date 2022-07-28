@@ -78,5 +78,6 @@ splitBtn.addEventListener("click", (e) => {
 });
 document.querySelector("#resetBtn").addEventListener("click", (e) => {
   e.preventDefault();
+  document.querySelector("form").reset();
   document.querySelector("#perPerson").innerHTML = "$0";
 });
